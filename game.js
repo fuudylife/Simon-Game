@@ -13,6 +13,7 @@ function nextSequence() {
 
     playSound(randomChosenColour);
 }
+
 $(".btn").click(function() {
     var userChosenColor = $(this).attr('id');
     userClickedPattern.push(userChosenColor);
@@ -55,3 +56,12 @@ function animatePress() {
     }, 100);
     });
 }
+
+var startedToggle = true;
+
+$(document).on("keydown", function() {
+    if (startedToggle) {
+        nextSequence();
+        startedToggle = false;
+    }
+});
