@@ -11,7 +11,16 @@ function nextSequence() {
 
     $("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    switch (randomChosenColour) {
+    clickedSound(randomChosenColour);
+}
+$(".btn").click(function() {
+    var userChosenColor = $(this).attr('id');
+    userClickedPattern.push(userChosenColor);
+    clickedSound(userChosenColor);
+});
+
+function clickedSound(color) {
+    switch (color) {
         case "blue":
             var blue = new Audio("sounds/blue.mp3");
                 blue.play();
@@ -31,13 +40,9 @@ function nextSequence() {
             var yellow = new Audio("sounds/yellow.mp3");
                 yellow.play();
             break;
-    
+
         default:
             console.log(randomChosenColour);
             break;
     }
 }
-$(".btn").click(function() {
-    var userChosenColor = $(this).attr('id');
-    userClickedPattern.push(userChosenColor);
-});
