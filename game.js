@@ -12,12 +12,16 @@ function nextSequence() {
     $("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
     playSound(randomChosenColour);
+    level++;
+    $("#level-title").text("Level " + level);
 }
 
 $(".btn").click(function() {
     var userChosenColor = $(this).attr('id');
     userClickedPattern.push(userChosenColor);
     playSound(userChosenColor);
+    animatePress();
+    startedToggle = true;
 });
 
 function playSound(name) {
@@ -58,6 +62,8 @@ function animatePress() {
 }
 
 var startedToggle = true;
+var level = 0;
+
 
 $(document).on("keydown", function() {
     if (startedToggle) {
