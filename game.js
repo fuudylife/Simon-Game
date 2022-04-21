@@ -44,14 +44,20 @@ function checkAnswer(currentLevel) {
             setTimeout(nextSequence, 1000);
         }
     } else {
-        var wrongSound = new Audio("sounds/wrong.mp3");
-        wrongSound.play();
+        playSound("wrong");
         $("body").addClass("game-over");
         setTimeout(function() {
             $("body").removeClass("game-over");
         }, 200);
         $("#level-title").text("Game Over, Press Any Key to Restart");
+        startOver();
     }
+}
+
+function startOver() {
+    level = 0;
+    gamePattern = [];
+    startedToggle = true;
 }
 
 function animatePress(currentColor) {
