@@ -44,6 +44,8 @@ function checkAnswer(currentLevel) {
             setTimeout(nextSequence, 1000);
         }
     } else {
+        var wrongSound = new Audio("sounds/wrong.mp3");
+        wrongSound.play();
         $("body").addClass("game-over");
         setTimeout(function() {
             $("body").removeClass("game-over");
@@ -62,6 +64,4 @@ function animatePress(currentColor) {
 function playSound(name) {
     var sounds = new Audio("sounds/" + name + ".mp3");
         sounds.play();
-    var wrongSound = new Audio("sounds/wrong.mp3");
-        wrongSound.play();
 }
